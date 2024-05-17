@@ -16,11 +16,6 @@ import {
 import { Input } from "@/components/ui/input";
 
 function Profile() {
-  const [walletId, setWalletId] = useState("");
-  const [name, setName] = useState("");
-  const [dateOfBirth, setDateOfBirth] = useState("");
-  const [gender, setGender] = useState("");
-  const [bloodGroup, setBloodGroup] = useState("");
   const individualDetails = z.object({
     walletId: z.string(),
     name: z.string().min(2, "Name is too short").max(255, "Name is too long"),
@@ -48,8 +43,8 @@ function Profile() {
     console.log(values);
   }
   return (
-    <div>
-      <h1>dkmd</h1>
+    <div className="py-3.5 px-5">
+      <h1>this is form in profile section</h1>
     </div>
   );
 }

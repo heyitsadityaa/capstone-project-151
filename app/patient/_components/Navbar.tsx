@@ -1,7 +1,6 @@
 "use client";
 
 import { UserButton } from "@clerk/nextjs";
-
 import Logo from "@/components/logo";
 import { Button } from "@/components/ui/button";
 import { useScrollTop } from "@/hooks/use-scroll-top";
@@ -18,18 +17,18 @@ export const Navbar = () => {
       )}
     >
       <Logo />
-      <div className="sm:ml-auto sm:justify-end justify-between w-full flex items-center gap-x-2">
+      <div className="sm:ml-auto sm:justify-end justify-between w-full flex items-center">
         <Button variant="ghost">
           <Link href="/patient">Home</Link>
         </Button>
         <Button variant="ghost">
-          <Link href="/profile">Profile</Link>
+          <Link href="/patient/profile">Profile</Link>
         </Button>
         <Button variant="ghost">
-          <Link href="/access-control">Access Control</Link>
+          <Link href="/patient/access-control">Access Control</Link>
         </Button>
         <Button variant="ghost">
-          <Link href="/health-records">Health Records</Link>
+          <Link href="/patient/health-records">Health Records</Link>
         </Button>
         <UserButton afterSignOutUrl="/" />
       </div>
