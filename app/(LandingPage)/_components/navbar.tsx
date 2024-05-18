@@ -16,7 +16,7 @@ export const Navbar = () => {
       )}
     >
       <Logo />
-      <div className="sm:ml-auto sm:justify-end justify-between w-full flex items-center gap-x-2">
+      <div className="sm:ml-auto sm:justify-end justify-between w-full flex gap-x-2">
         <Button>
           <Link href="/auth">Sign In</Link>
         </Button>

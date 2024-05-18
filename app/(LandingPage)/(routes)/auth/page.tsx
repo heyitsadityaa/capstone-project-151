@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 
 function page() {
   return (
-    <div className="w-1/2 flex flex-col space-y-5 py-4 px-10 rounded">
+    <div className="flex flex-col space-y-5 py-5 px-10 rounded max-w-2xl mx-auto">
       <Button variant="default" className="" asChild>
         <Link href="/patient">Sign In as Patient</Link>
       </Button>

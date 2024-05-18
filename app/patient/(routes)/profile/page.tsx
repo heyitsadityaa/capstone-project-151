@@ -36,16 +36,31 @@ function Profile() {
     },
   });
 
-  // 2. Define a submit handler.
   function onSubmit(values: z.infer<typeof individualDetails>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
     console.log(values);
   }
   return (
-    <div className="py-3.5 px-5">
-      <h1>this is form in profile section</h1>
-    </div>
+    <Form {...form}>
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="space-y-8 py-5 px-5 max-w-md "
+      >
+        <FormField
+          control={form.control}
+          name="walletId"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>WalletId</FormLabel>
+              <FormControl>
+                <Input placeholder="" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <Button type="submit">Submit</Button>
+      </form>
+    </Form>
   );
 }
 
