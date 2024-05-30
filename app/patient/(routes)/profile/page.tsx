@@ -1,66 +1,71 @@
 "use client";
 import React, { useState } from "react";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { date, z } from "zod";
 import { Button } from "@/components/ui/button";
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import "@/context/Healthrecord";
+import { currentUser } from "@clerk/nextjs";
+import { toast } from "sonner";
+
+import { format } from "date-fns";
+import { Calendar as CalendarIcon } from "lucide-react";
+
+import { cn } from "@/lib/utils";
+
+import { Calendar } from "@/components/ui/calendar";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 
 function Profile() {
-  const individualDetails = z.object({
-    walletId: z.string(),
-    name: z.string().min(2, "Name is too short").max(255, "Name is too long"),
-    dateOfBirth: date(),
-    gender: z.enum(["Male", "Female", "Other"]),
-    BloodGroup: z.enum(["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"]),
-  });
-
-  // 1. Define your form.
-  const form = useForm<z.infer<typeof individualDetails>>({
-    resolver: zodResolver(individualDetails),
-    defaultValues: {
-      walletId: "",
-      name: "",
-      dateOfBirth: undefined,
-      gender: undefined,
-      BloodGroup: undefined,
-    },
-  });
-
-  function onSubmit(values: z.infer<typeof individualDetails>) {
-    console.log(values);
-  }
+  const [date, setDate] = React.useState<Date>();
   return (
-    <Form {...form}>
-      <form
-        onSubmit={form.handleSubmit(onSubmit)}
-        className="space-y-8 py-5 px-5 max-w-md "
-      >
-        <FormField
-          control={form.control}
-          name="walletId"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>WalletId</FormLabel>
-              <FormControl>
-                <Input placeholder="" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <Button type="submit">Submit</Button>
-      </form>
-    </Form>
+    <div className="">
+      <div className="flex flex-col max-w-md px-5 py-5 space-y-5 ">
+        <div className="">
+          <Label htmlFor="email">Owner's WalletId</Label>
+          <Input
+            disabled
+            type="text"
+            placeholder="WalletId"
+            className="focus:bg-sky-600"
+          />
+        </div>
+        <div className="">
+          <Label htmlFor="text">Individual's Name</Label>
+          <Input type="text" placeholder="Name" className="" />
+        </div>
+        <div className="">
+          <Label htmlFor="text">Date Of Birth</Label>
+          <Input type="date" placeholder="datofbirth" className="" />
+        </div>
+        <div className="">
+          <Label htmlFor="text">Gender</Label>
+          <Input type="text" placeholder="Gender" className="" />
+        </div>
+        <div className="">
+          <Label htmlFor="text">Blood Group</Label>
+          <Input type="text" placeholder="Blood Group" className="" />
+        </div>
+        <Button
+          variant="default"
+          onClick={() =>
+            toast("Event has been created", {
+              description: "Sunday, December 03, 2023 at 9:00 AM",
+              action: {
+                label: "Undo",
+                onClick: () => console.log("Undo"),
+              },
+            })
+          }
+        >
+          Submit
+        </Button>
+      </div>
+      <div className=""></div>
+    </div>
   );
 }
 

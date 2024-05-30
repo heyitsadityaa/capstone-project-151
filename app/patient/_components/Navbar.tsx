@@ -24,11 +24,15 @@ export const Navbar = () => {
         <Button variant="ghost">
           <Link href="/patient/profile">Profile</Link>
         </Button>
-        <Button variant="ghost">
-          <Link href="/patient/access-control">Access Control</Link>
-        </Button>
+
         <Button variant="ghost">
           <Link href="/patient/health-records">Health Records</Link>
+        </Button>
+        <Button variant="ghost">
+          <Link href="/patient/prescriptions">Prescriptions</Link>
+        </Button>
+        <Button variant="ghost">
+          <Link href="/patient/access-control">Access Control</Link>
         </Button>
         <UserButton afterSignOutUrl="/" />
       </div>

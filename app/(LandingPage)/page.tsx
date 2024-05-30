@@ -10,7 +10,6 @@ const page = () => {
         <Heading />
         <Heros />
       </div>
-      <Footer />
     </div>
   );
 };
