@@ -12,7 +12,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
-function PrescriptionCard() {
+export const HealthRecordCard = () => {
   const [isCardVisible, setIsCardVisible] = useState(false);
   const [isCardShortEnd, setIsCardShortEnd] = useState(false);
   const [CardData, setCardData] = useState({
@@ -29,18 +29,21 @@ function PrescriptionCard() {
   };
 
   const handleInputChange = (e: any) => {};
+
   return (
     <div className="p-5">
       <Button
         variant="default"
         onClick={() => setIsCardVisible(!isCardVisible)}
       >
-        Add Prescriptions
+        Add Health Record
       </Button>
       {isCardVisible && (
         <Card className="w-[350px]">
           <CardHeader>
-            <CardTitle>Health Facility</CardTitle>
+            <CardTitle>
+              <Input placeholder="Health facility Name" />
+            </CardTitle>
             <CardDescription>
               Deploy your new project in one-click.
             </CardDescription>
@@ -49,19 +52,19 @@ function PrescriptionCard() {
             <form>
               <div className="grid w-full items-center gap-4">
                 <div className="flex flex-col space-y-1.5">
-                  <Label htmlFor="name">medication</Label>
-                  <Input id="name" placeholder="medication" />
-                </div>
-                <div className="flex flex-col space-y-1.5">
-                  <Label htmlFor="name">prescriptionDate</Label>
-                  <Input type="date" placeholder="" className="" />
-                </div>
-                <div className="flex flex-col space-y-1.5">
-                  <Label htmlFor="name">Dosage</Label>
+                  <Label htmlFor="name">Condition</Label>
                   <Input id="name" placeholder="Name of your project" />
                 </div>
                 <div className="flex flex-col space-y-1.5">
-                  <Label htmlFor="name">prescribingDoctorName</Label>
+                  <Label htmlFor="name">diagnosisDate</Label>
+                  <Input type="date" placeholder="" className="" />
+                </div>
+                <div className="flex flex-col space-y-1.5">
+                  <Label htmlFor="name">treatment</Label>
+                  <Input id="name" placeholder="Name of your project" />
+                </div>
+                <div className="flex flex-col space-y-1.5">
+                  <Label htmlFor="name">doctorName</Label>
                   <Input id="name" placeholder="Name of your project" />
                 </div>
               </div>
@@ -75,7 +78,7 @@ function PrescriptionCard() {
               Cancel
             </Button>
             <Button
-              onSubmit={handleSubmit}
+              variant="default"
               onClick={() => {
                 setIsCardShortEnd(!isCardShortEnd);
                 setIsCardVisible(!isCardVisible);
@@ -90,34 +93,37 @@ function PrescriptionCard() {
       {isCardShortEnd && (
         <Card className="w-[350px]">
           <CardHeader>
-            <CardTitle>
-              <Input placeholder="Health Facility" value="" />
-            </CardTitle>
+            <CardTitle>Health Facility</CardTitle>
+            <CardDescription>
+              Deploy your new project in one-click.
+            </CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="grid w-full items-center gap-4">
-              <div className="flex flex-col space-y-1.5">
-                <Label htmlFor="name">medication</Label>
-                <p>{CardData.condition}</p>
+            <form>
+              <div className="grid w-full items-center gap-4">
+                <div className="flex flex-col space-y-1.5">
+                  <Label htmlFor="name">Condition</Label>
+                  <p></p>
+                </div>
+                <div className="flex flex-col space-y-1.5">
+                  <Label htmlFor="name">diagnosisDate</Label>
+                  <p></p>
+                </div>
+                <div className="flex flex-col space-y-1.5">
+                  <Label htmlFor="name">treatment</Label>
+                  <p></p>
+                </div>
+                <div className="flex flex-col space-y-1.5">
+                  <Label htmlFor="name">doctorName</Label>
+                  <p></p>
+                </div>
               </div>
-              <div className="flex flex-col space-y-1.5">
-                <Label htmlFor="name">prescriptionDate</Label>
-                <p></p>
-              </div>
-              <div className="flex flex-col space-y-1.5">
-                <Label htmlFor="name">Dosage</Label>
-                <p></p>
-              </div>
-              <div className="flex flex-col space-y-1.5">
-                <Label htmlFor="name">prescribingDoctorName</Label>
-                <p></p>
-              </div>
-            </div>
+            </form>
           </CardContent>
         </Card>
       )}
     </div>
   );
-}
+};
 
-export default PrescriptionCard;
+export default HealthRecordCard;

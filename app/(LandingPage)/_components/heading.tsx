@@ -10,9 +10,11 @@ const Heading = () => {
 
   return (
     <div className="max-w-3xl space-y-4">
-      <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold">KeepSafe</h1>
+      <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold">
+        Empowering Health, Securely. Welcome to KeepSafe.
+      </h1>
       <h3 className="text-base sm:text-xl md:text-2xl font-medium">
-        KeepSafe2
+        Revolutionizing Healthcare with Blockchain for Privacy and Trust
       </h3>
       <Button asChild>
         <Link href="/auth">

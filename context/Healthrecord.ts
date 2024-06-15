@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, use } from "react";
 import { ethers } from "ethers";
 
 import { contractAddress, contractABI } from "./constants";
 import styles from "../styles/Home.module.css";
+import { useUser } from "@clerk/nextjs";
 
 interface IndividualEntry {
   owner: string;
@@ -33,8 +34,26 @@ interface TestResultEntry {
   lab: string;
 }
 
-export default function Home() {
-  const [currentAccount, setCurrentAccount] = useState<string>("");
+interface addHealthProfessional {
+  walletId: string;
+}
+interface removeHealthProfessional {
+  walletId: string;
+}
+interface addHealthFacility {
+  walletId: string;
+}
+interface removeHealthFacility {
+  walletId: string;
+}
+
+const HealthRecord = () => {
+  const { user } = useUser();
+  const primaryWeb3Wallet = user?.primaryWeb3Wallet;
+  const walletId = primaryWeb3Wallet?.web3Wallet;
+
+  const [currentAccount, setCurrentAccount] = useState<string>(walletId || "");
+
   const [individualDetails, setIndividualDetails] = useState<IndividualEntry[]>(
     []
   );
@@ -58,6 +77,16 @@ export default function Home() {
   const [testDate, setTestDate] = useState<number>(0);
   const [result, setResult] = useState<string>("");
   const [lab, setLab] = useState<string>("");
+  const [addProfessional, setAddProfessional] = useState<
+    addHealthProfessional[]
+  >([]);
+  const [removeProfessional, setRemoveProfessional] = useState<
+    removeHealthProfessional[]
+  >([]);
+  const [addFacility, setAddFacility] = useState<addHealthFacility[]>([]);
+  const [removeFacility, setRemoveRemove] = useState<removeHealthFacility[]>(
+    []
+  );
 
   const connectWallet = async () => {
     try {
@@ -74,7 +103,7 @@ export default function Home() {
       console.log(error);
     }
   };
-
+  // Function to addIndividualDetails.
   const addIndividualDetails = async () => {
     try {
       const { ethereum } = window as any;
@@ -102,6 +131,7 @@ export default function Home() {
     }
   };
 
+  // Function to addMedicalHistory.
   const addMedicalHistory = async () => {
     try {
       const { ethereum } = window as any;
@@ -128,6 +158,7 @@ export default function Home() {
     }
   };
 
+  // Function to addPrescription.
   const addPrescription = async () => {
     try {
       const { ethereum } = window as any;
@@ -154,6 +185,7 @@ export default function Home() {
     }
   };
 
+  // Function to addTestResult.
   const addTestResult = async () => {
     try {
       const { ethereum } = window as any;
@@ -180,6 +212,7 @@ export default function Home() {
     }
   };
 
+  // Function to getIndividualDetails.
   const fetchIndividualDetails = async () => {
     try {
       const { ethereum } = window as any;
@@ -204,6 +237,7 @@ export default function Home() {
     }
   };
 
+  // Function to getMedicalHistory.
   const fetchMedicalHistory = async () => {
     try {
       const { ethereum } = window as any;
@@ -228,6 +262,7 @@ export default function Home() {
     }
   };
 
+  // Function to getPrescription.
   const fetchPrescriptions = async () => {
     try {
       const { ethereum } = window as any;
@@ -251,6 +286,7 @@ export default function Home() {
     }
   };
 
+  // Function to getTestResult.
   const fetchTestResults = async () => {
     try {
       const { ethereum } = window as any;
@@ -275,32 +311,107 @@ export default function Home() {
     }
   };
 
+  // addHealthProfessional Role.
+  const addHealthProfessional = async () => {
+    try {
+      const { ethereum } = window as any;
+      if (ethereum) {
+        const provider = new ethers.providers.Web3Provider(ethereum);
+        const signer = provider.getSigner();
+        const contract = new ethers.Contract(
+          contractAddress,
+          contractABI,
+          signer
+        );
+
+        const tx = await contract.addHealthProfessional(walletId);
+        await tx.wait();
+        console.log("Health professional added", addHealthProfessional);
+      } else {
+        console.log("Ethereum object doesn't exist!");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  // removeHealthProfessional Role.
+  const removeHealthProfessional = async () => {
+    try {
+      const { ethereum } = window as any;
+      if (ethereum) {
+        const provider = new ethers.providers.Web3Provider(ethereum);
+        const signer = provider.getSigner();
+        const contract = new ethers.Contract(
+          contractAddress,
+          contractABI,
+          signer
+        );
+
+        const tx = await contract.removeHealthProfessional(walletId);
+        await tx.wait();
+        console.log("Health professional removed", removeHealthProfessional);
+      } else {
+        console.log("Ethereum object doesn't exist!");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  // addHealthFacility Role
+  const addHealthFacility = async () => {
+    try {
+      const { ethereum } = window as any;
+      if (ethereum) {
+        const provider = new ethers.providers.Web3Provider(ethereum);
+        const signer = provider.getSigner();
+        const contract = new ethers.Contract(
+          contractAddress,
+          contractABI,
+          signer
+        );
+        const tx = await contract.addHealthFacility(walletId);
+        await tx.wait();
+        console.log("Health facility added", addHealthFacility);
+      } else {
+        console.log("Ethereum object doesn't exist!");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  // removeHealthFacility Role.
+  const removeHealthFacility = async () => {
+    try {
+      const { ethereum } = window as any;
+      if (ethereum) {
+        const provider = new ethers.providers.Web3Provider(ethereum);
+        const signer = provider.getSigner();
+        const contract = new ethers.Contract(
+          contractAddress,
+          contractABI,
+          signer
+        );
+        const tx = await contract.removeHealthFacility(walletId);
+        await tx.wait();
+        console.log("Health facility removed", removeHealthFacility);
+      } else {
+        console.log("Ethereum object doesn't exist!");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     connectWallet();
   }, []);
 
   return null;
-}
+};
 
+export default HealthRecord;
 // Connecting with the HealthRecord contract.
-
-// Function to addIndividualDetails.
-// Function to getIndividualDetails.
-
-// Function to addMedicalHistory.
-// Function to getMedicalHistory.
-
-// Function to addPrescription.
-// Function to getPrescription.
-
-// Function to addTestResult.
-// Function to getTestResult.
-
-// Access Control Functions.
 // MetaMask SignIn Individual will be ADMIN_ROLE.
-
-// addHealthProfessional Role.
-// removeHealthProfessional Role.
-
-// addHealthFacility Role.
-// removeHealthFacility Role.

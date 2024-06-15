@@ -9,7 +9,7 @@ function page() {
         <Link href="/patient">Sign In as Patient</Link>
       </Button>
       <Button variant="default" asChild>
-        <Link href="/health-professional">Sign In as Health Professional</Link>
+        <Link href="/healthprofessional">Sign In as Health Professional</Link>
       </Button>
       <Button variant="default" asChild>
         <Link href="/health-facility">Sign In as Health Facility</Link>
