@@ -1,18 +1,19 @@
 import React from "react";
-import Heading from "./_components/heading";
-import Heros from "./_components/heros";
-import Footer from "./_components/footer";
+// import Heading from "./_components/heading";
 
-const page = () => {
-  return (
-    <div className="min-h-full flex flex-col">
-      <div className="flex flex-col items-center justify-center md:justify-start text-center flex-1 px-6 pb-20">
-        <Heading />
-        <Heros />
-      </div>
-      <Footer />
+import Heros from "./_components/Heros";
+// import Navbar from "./_components/Navitem";
+import Navitem from "./_components/Navitem";
+// // import Navbar from "../patient/_components/Navbar";
+
+// import Footer from "./_components/footer";
+
+export default function Home() {
+  return(
+    <div>
+      <Heros />
+      <Navitem />
+      
     </div>
-  );
-};
-
-export default page;
+  )
+}

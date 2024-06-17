@@ -1,13 +1,14 @@
 import { Inter } from "next/font/google";
-import { Navbar } from "./_components/navbar";
+import Navitem from "./_components/Navitem";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
 const LandingPageLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="h-full">
-      <Navbar />
-      <div className="h-full pt-20">
+    <div >
+      <Navitem/>
+      <div >
         <main className={inter.className}>{children}</main>
       </div>
     </div>

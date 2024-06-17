@@ -1,5 +1,5 @@
 import { Inter } from "next/font/google";
-import Navbar from "./_components/Navbar";
+// import Navbar from "./_components/Navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -11,7 +11,7 @@ export default function PatientLayout({
   return (
     <html>
       <body className="h-full">
-        <Navbar />
+        {/* <Navbar /> */}
         <div className="h-full pt-20">
           <main className={inter.className}>{children}</main>
         </div>
