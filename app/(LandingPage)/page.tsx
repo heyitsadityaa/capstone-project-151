@@ -3,17 +3,16 @@ import React from "react";
 
 import Heros from "./_components/Heros";
 // import Navbar from "./_components/Navitem";
-import Navitem from "./_components/Navitem";
+// import Navitem from "./_components/Navitem";
 // // import Navbar from "../patient/_components/Navbar";
 
 // import Footer from "./_components/footer";
 
 export default function Home() {
-  return(
+  return (
     <div>
       <Heros />
-      <Navitem />
-      
+      {/* <Navitem /> */}
     </div>
-  )
+  );
 }
