@@ -17,8 +17,16 @@ const buttonVariants = cva(
           "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
         secondary:
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
+        ghostP: "hover:bg-accent hover:text-accent-foreground text-[#99CC0E]",
+        ghostHP: "hover:bg-accent hover:text-accent-foreground text-[#F2B6C1]",
+        ghostHF: "hover:bg-accent hover:text-accent-foreground text-[#F2AE30]",
         link: "text-primary underline-offset-4 hover:underline",
+        patient:
+          "bg-[#99CC0E] text-sky-foreground text-white hover:bg-[#99CC0E]/80",
+        healthProfessional:
+          "bg-[#F2B6C1] text-sky-foreground text-white hover:bg-[#F2B6C1]/80",
+        healthFacility:
+          "bg-[#F2AE30] text-sky-foreground text-white hover:bg-[#F2AE30]/80 ",
       },
       size: {
         default: "h-10 px-4 py-2",

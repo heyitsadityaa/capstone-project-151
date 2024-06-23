@@ -407,6 +407,18 @@ const HealthRecord = () => {
 
   useEffect(() => {
     connectWallet();
+    addIndividualDetails();
+    addMedicalHistory();
+    addPrescription();
+    addTestResult();
+    fetchIndividualDetails();
+    fetchMedicalHistory();
+    fetchPrescriptions();
+    fetchTestResults();
+    addHealthProfessional();
+    removeHealthProfessional();
+    addHealthFacility();
+    removeHealthFacility();
   }, []);
 
   return null;

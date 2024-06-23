@@ -1,6 +1,6 @@
 "use client";
 import { Inter } from "next/font/google";
-// import { NavBar } from "./_components/NavBar";
+import { Navbar } from "./_components/Navbar";
 import { useAuth, useUser } from "@clerk/nextjs";
 import { Spinner } from "@/components/spinner";
 import { redirect } from "next/navigation";
@@ -15,7 +15,7 @@ export default function PatientLayout({
   return (
     <html>
       <body className="h-full">
-        {/* <NavBar /> */}
+        <Navbar />
         <div className="h-full pt-20">
           <main className={inter.className}>{children}</main>
         </div>

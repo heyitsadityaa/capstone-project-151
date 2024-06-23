@@ -72,13 +72,13 @@ export const HealthRecordCard = () => {
           </CardContent>
           <CardFooter className="flex justify-between">
             <Button
-              variant="outline"
+              variant="healthProfessional"
               onClick={() => setIsCardVisible(!isCardVisible)}
             >
               Cancel
             </Button>
             <Button
-              variant="default"
+              variant="healthProfessional"
               onClick={() => {
                 setIsCardShortEnd(!isCardShortEnd);
                 setIsCardVisible(!isCardVisible);

@@ -26,10 +26,10 @@ export const HealthRecordCard = () => {
   return (
     <div className="p-5 space-y-5">
       <Button
-        variant="default"
+        variant="patient"
         onClick={() => setIsCardVisible(!isCardVisible)}
       >
-        Fetch Health Record
+        Add Health Record
       </Button>
       {isCardVisible && (
         <Card className="w-[350px]">
@@ -42,19 +42,19 @@ export const HealthRecordCard = () => {
             <div className="grid w-full items-center gap-4">
               <div className="flex flex-col space-y-1.5">
                 <Label htmlFor="name">Condition</Label>
-                <Input id="name" value="" disabled />
+                <Input id="name" value="Hypertension (High Blood Pressure)" />
               </div>
               <div className="flex flex-col space-y-1.5">
                 <Label htmlFor="name">diagnosisDate</Label>
-                <Input type="date" value="" disabled />
+                <Input type="date" value="29-03-2024" />
               </div>
               <div className="flex flex-col space-y-1.5">
                 <Label htmlFor="name">treatment</Label>
-                <Input id="name" value="" disabled />
+                <Input id="name" value="Diuretics, ACE Inhibitors" />
               </div>
               <div className="flex flex-col space-y-1.5">
                 <Label htmlFor="name">doctorName</Label>
-                <Input id="name" value="" disabled />
+                <Input id="name" value="Doctor#1" />
               </div>
             </div>
           </CardContent>

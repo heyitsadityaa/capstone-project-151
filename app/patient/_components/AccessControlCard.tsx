@@ -13,17 +13,31 @@ import removeHealthFacility from "@/context/Healthrecord";
 export const AccessControlCard = () => {
   const [isHPCardVisible, setIsHPCardVisible] = useState(false);
   const [isHFCardVisible, setIsHFCardVisible] = useState(false);
-  const handleSubmit = (e: any) => {};
-  const handleDelete = (e: any) => {};
+  const [HealthProfessionalID, setHealthProfessionalID] = useState("");
+  const [HealthFacilityID, setHealthFacilityID] = useState("");
+  const [isAdded, setIsAdded] = useState(false);
+
+  const handleHPSubmit = (event: any) => {};
+  const handleHFSubmit = (event: any) => {};
+  const handleDelete = (event: any) => {};
+  const handleHPChange = (event: any) => {
+    setHealthProfessionalID(event.target.value);
+  };
+
+  const handleHFChange = (event: any) => {
+    setHealthFacilityID(event.target.value);
+  };
+
   return (
     <div className="max-w-md p-5 space-y-5">
       <div>
         <Label htmlFor="string">Add Health Professional</Label>
         <div className="flex flex-row space-x-5">
-          <Input type="text" placeholder="WalletId" />
+          <Input type="text" placeholder="WalletId" required />
           <Button
+            variant="patient"
             onClick={() => setIsHPCardVisible(!isHPCardVisible)}
-            onSubmit={addHealthProfessional}
+            onSubmit={handleHPSubmit}
           >
             Add
           </Button>
@@ -33,7 +47,7 @@ export const AccessControlCard = () => {
         <div className="">
           <Card>
             <CardContent>
-              <p></p>
+              <p>{HealthProfessionalID}</p>
               <Button
                 variant="outline"
                 onClick={() => {
@@ -54,8 +68,9 @@ export const AccessControlCard = () => {
         <div className="flex flex-row space-x-5">
           <Input type="text" placeholder="WalletId" />
           <Button
+            variant="patient"
             onClick={() => setIsHFCardVisible(!isHFCardVisible)}
-            onSubmit={addHealthFacility}
+            onSubmit={handleHFSubmit}
           >
             Add
           </Button>

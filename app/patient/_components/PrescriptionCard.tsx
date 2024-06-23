@@ -32,7 +32,7 @@ function PrescriptionCard() {
   return (
     <div className="p-5">
       <Button
-        variant="default"
+        variant="patient"
         onClick={() => setIsCardVisible(!isCardVisible)}
       >
         Add Prescriptions
