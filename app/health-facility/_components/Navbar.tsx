@@ -18,21 +18,20 @@ export const Navbar = () => {
     >
       <Logo />
       <div className="sm:ml-auto sm:justify-end justify-between w-full flex items-center">
-        <Button variant="ghostP">
+        <Button variant="ghostHF">
           <Link href="/patient">Home</Link>
         </Button>
-        <Button variant="ghostP">
-          <Link href="/patient/profile">Profile</Link>
+        <Button variant="ghostHF">
+          <Link href="#">Profile</Link>
         </Button>
-
-        <Button variant="ghostP">
-          <Link href="/patient/health-records">Health Records</Link>
+        <Button variant="ghostHF">
+          <Link href="#">Patients</Link>
         </Button>
-        <Button variant="ghostP">
-          <Link href="/patient/prescriptions">Prescriptions</Link>
+        <Button variant="ghostHF">
+          <Link href="#">Prescriptions</Link>
         </Button>
-        <Button variant="ghostP">
-          <Link href="/patient/access-control">Access Control</Link>
+        <Button variant="ghostHF">
+          <Link href="#">User Access</Link>
         </Button>
         <UserButton afterSignOutUrl="/" />
       </div>

@@ -1,6 +1,6 @@
 "use client";
 import { Inter } from "next/font/google";
-import Navbar from "./_components/Navbar";
+import { Navbar } from "./_components/Navbar";
 import { useAuth, useUser } from "@clerk/nextjs";
 import { Spinner } from "@/components/spinner";
 import { redirect } from "next/navigation";

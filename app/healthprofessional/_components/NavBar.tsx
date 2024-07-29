@@ -7,7 +7,7 @@ import { useScrollTop } from "@/hooks/use-scroll-top";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 
-export const Navbar = () => {
+export const NavBar = () => {
   const scrolled = useScrollTop();
   return (
     <div
@@ -18,25 +18,21 @@ export const Navbar = () => {
     >
       <Logo />
       <div className="sm:ml-auto sm:justify-end justify-between w-full flex items-center">
-        <Button variant="ghostP">
+        <Button variant="ghostHP">
           <Link href="/patient">Home</Link>
         </Button>
-        <Button variant="ghostP">
+        <Button variant="ghostHP">
           <Link href="/patient/profile">Profile</Link>
         </Button>
-
-        <Button variant="ghostP">
-          <Link href="/patient/health-records">Health Records</Link>
+        <Button variant="ghostHP">
+          <Link href="/patient/health-records">Patients</Link>
         </Button>
-        <Button variant="ghostP">
-          <Link href="/patient/prescriptions">Prescriptions</Link>
-        </Button>
-        <Button variant="ghostP">
-          <Link href="/patient/access-control">Access Control</Link>
+        <Button variant="ghostHP">
+          <Link href="/patient/prescriptions">Add Patients</Link>
         </Button>
         <UserButton afterSignOutUrl="/" />
       </div>
     </div>
   );
 };
-export default Navbar;
+export default NavBar;
